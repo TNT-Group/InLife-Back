@@ -25,13 +25,17 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="a76f7e08-e5b6-48d5-826f-8f9c9785b7e2">
-        <schema name="public" object-types="view, table, column" />
+        <schema name="public" object-types="constraint, index, view, sequence, table, function, column, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="a76f7e08-e5b6-48d5-826f-8f9c9785b7e2">
-      <console name="InLife" type="STANDARD" schema="information_schema" session="Main" />
+      <console name="InLife" type="STANDARD" schema="information_schema" session="Main"><![CDATA[CREATE TABLE IF NOT EXISTS messages (
+    id BIGSERIAL PRIMARY KEY,
+    message VARCHAR(255) NOT NULL,
+    post_date DATE NOT NULL
+)]]></console>
     </connection>
     <connection id="8fc8c146-f293-4711-bf28-4f86f63f6da1">
       <console name="Sweater" type="STANDARD" schema="" session="Main" />
@@ -41,7 +45,9 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="a76f7e08-e5b6-48d5-826f-8f9c9785b7e2" object-ref="schemas/public/tables/messages" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="a76f7e08-e5b6-48d5-826f-8f9c9785b7e2" />
