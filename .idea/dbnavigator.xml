@@ -25,13 +25,16 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="a76f7e08-e5b6-48d5-826f-8f9c9785b7e2">
-        <schema name="public" object-types="view, table, column" />
+        <schema name="information_schema" object-types="view, table, function" />
+        <schema name="pg_catalog" object-types="view, table, function" />
+        <schema name="public" object-types="view, table, sequence, index, function, constraint, dataset trigger, column" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="a76f7e08-e5b6-48d5-826f-8f9c9785b7e2">
-      <console name="InLife" type="STANDARD" schema="information_schema" session="Main" />
+      <console name="InLife" type="STANDARD" schema="public" session="Main"><![CDATA[select * from users;
+select * from messages;]]></console>
     </connection>
     <connection id="8fc8c146-f293-4711-bf28-4f86f63f6da1">
       <console name="Sweater" type="STANDARD" schema="" session="Main" />
@@ -49,6 +52,7 @@
     <connection id="6762e8c2-70c6-4557-bd29-3651363b26b0" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="a76f7e08-e5b6-48d5-826f-8f9c9785b7e2" dataset="public.users" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="a76f7e08-e5b6-48d5-826f-8f9c9785b7e2" dataset="public.messages" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
@@ -73,7 +77,9 @@
     <filters />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
-    <recently-used-interfaces />
+    <recently-used-interfaces>
+      <mapping database-type="POSTGRES" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>

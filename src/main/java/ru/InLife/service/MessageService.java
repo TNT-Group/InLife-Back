@@ -3,7 +3,7 @@ package ru.InLife.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.InLife.model.Message;
-import ru.InLife.repos.MessageRepo;
+import ru.InLife.repository.MessageRepository;
 
 import java.util.List;
 
@@ -11,21 +11,21 @@ import java.util.List;
 public class MessageService {
 
     @Autowired
-    private MessageRepo messageRepo;
+    private MessageRepository messageRepository;
 
     public Message findById(Long id){
-        return messageRepo.findById(id).orElse(null);
+        return messageRepository.findById(id).orElse(null);
     }
 
     public List<Message> findAll(){
-        return messageRepo.findAll();
+        return messageRepository.findAll();
     }
 
     public Message saveMessage(Message message){
-        return messageRepo.save(message);
+        return messageRepository.save(message);
     }
 
     public void deleteById(Long id){
-        messageRepo.deleteById(id);
+        messageRepository.deleteById(id);
     }
 }
