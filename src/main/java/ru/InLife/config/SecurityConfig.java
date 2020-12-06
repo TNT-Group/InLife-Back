@@ -1,6 +1,7 @@
 package ru.InLife.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -23,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     JwtConfigurer jwtConfigurer;
 
+
     //TODO
     //add csrf
     @Override
@@ -42,6 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .apply(jwtConfigurer);
     }
+
+
 
     @Bean
     @Override

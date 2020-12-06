@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.InLife.DTO.AuthenticationRequestDTO;
 import ru.InLife.model.User;
 import ru.InLife.repository.UserRepository;
 import ru.InLife.security.JwtTokenProvider;
@@ -37,21 +38,18 @@ public class AuthenticationRestControllerV1 {
     }
 
     @PostMapping("/login")
-    //TODO
-    //Wait for user-logic
     public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequestDTO req){
         try {
-            String email = req.getEmail();
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(req.getEmail(), req.getPassword()));
             User user = userRepository.findByEmail(req.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User doesn't exists"));
-            String token = jwtTokenProvider.createToken(req.getEmail(), user.getRole().name());
+            String token = jwtTokenProvider.createToken(req.getEmail());
             Map<Object, Object> res = new HashMap<>();
             res.put("email", req.getEmail());
             res.put("token", token);
 
             return ResponseEntity.ok(res);
         } catch (AuthenticationException e) {
-            return new ResponseEntity<>("Invalid email/password combination", HttpStatus.FORBIDDEN)
+            return new ResponseEntity<>("Invalid email/password combination", HttpStatus.FORBIDDEN);
         }
     }
 

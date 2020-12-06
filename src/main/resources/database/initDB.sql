@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS messages;
 
 CREATE TABLE IF NOT EXISTS users (
 	id bigserial NOT NULL,
@@ -10,4 +11,10 @@ CREATE TABLE IF NOT EXISTS users (
 	first_name varchar(50),
 	last_name varchar(100),
 	CONSTRAINT users_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS messages (
+    id bigserial NOT NULL,
+    message varchar(255),
+    CONSTRAINT messages_pkey PRIMARY KEY (id)
 );
