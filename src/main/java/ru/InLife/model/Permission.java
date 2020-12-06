@@ -1,8 +1,9 @@
 package ru.InLife.model;
 
+
 public enum Permission {
-    DEVELOPERS_READ("developers:read"),
-    DEVELOPERS_WRITE("developers:write");
+    PERMISSION_READ("permission:read"),
+    PERMISSION_WRITE("permission:write");
 
     private final String permission;
 
