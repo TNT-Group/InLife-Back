@@ -8,6 +8,7 @@ import ru.InLife.model.Message;
 import ru.InLife.service.MessageService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/messages")
@@ -38,5 +39,11 @@ public class MessageController {
     @PreAuthorize("hasAuthority('permission:write')")
     public void deleteById(@PathVariable("id") Long id){
         messageService.deleteById(id);
+    }
+
+    @PatchMapping("/{id}")
+    @PreAuthorize("hasAuthority('permission:write')")
+    public Message updateMessage(@PathVariable("id") Long id, @RequestBody Map<String, Object> fields) {
+        return messageService.updateMessage(id, fields);
     }
 }

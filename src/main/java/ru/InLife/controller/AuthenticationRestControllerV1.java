@@ -29,9 +29,9 @@ public class AuthenticationRestControllerV1 {
         return authenticationService.authenticate(req);
     }
 
-    @PostMapping("/logout")
-    public void logout(HttpServletRequest req, HttpServletResponse res){
-        SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
-        securityContextLogoutHandler.logout(req, res, null);
-    }
+//    @PostMapping("/logout")
+//    public void logout(HttpServletRequest req, HttpServletResponse res){
+//        SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
+//        securityContextLogoutHandler.logout(req, res, null);
+//    }
 }

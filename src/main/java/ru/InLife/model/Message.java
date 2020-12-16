@@ -3,6 +3,7 @@ package ru.InLife.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.ZonedDateTime;
 
 @Data
 @Entity
@@ -20,6 +21,12 @@ public class Message {
     }
 
     private String message;
-    //TODO
-    //Add data and integration with user table(add user table)
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "user_id")
+//    private User author;
+    private String author;
+    @Enumerated(EnumType.STRING)
+    private Status status;
+    private ZonedDateTime createdTime = ZonedDateTime.now();
+    private ZonedDateTime updatedTime = createdTime;
 }
