@@ -13,8 +13,12 @@ import java.util.Map;
 @Service
 public class MessageService {
 
+    private final MessageRepository messageRepository;
+
     @Autowired
-    private MessageRepository messageRepository;
+    public MessageService(MessageRepository messageRepository) {
+        this.messageRepository = messageRepository;
+    }
 
     public Message findById(Long id){
         return messageRepository.findById(id).orElse(null);
@@ -28,13 +32,13 @@ public class MessageService {
         return messageRepository.save(message);
     }
 
-    public Message updateMessage(Long id, Map<String, Object> fields) {
+    public Message updateById(Long id, Map<String, Object> fields) {
         Message message = messageRepository.findById(id).orElse(null);
         if (message == null){
             return null;
         }
         fields.forEach((fieldName, fieldValue) -> {
-            if (fieldName == "message") {
+            if (fieldName.equals("message")) {
                 message.setMessage((String)fieldValue);
 //                Field field = ReflectionUtils.findField(Message.class, fieldName);
 //                field.setAccessible(true);
