@@ -21,12 +21,12 @@ public class Message {
     }
 
     private String message;
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "user_id")
-//    private User author;
-    private String author;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
+//    private String author;
     @Enumerated(EnumType.STRING)
     private Status status;
     private ZonedDateTime createdTime = ZonedDateTime.now();
     private ZonedDateTime updatedTime = createdTime;
-}
+}   

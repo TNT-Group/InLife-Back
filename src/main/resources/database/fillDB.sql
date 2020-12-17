@@ -4,7 +4,7 @@ insert into users (username, "password", email, first_name, last_name) values ('
 insert into users (username, "password", email) values ('notroot', '$2y$12$WtbuGvgFuVnrLNAkMaUYoOhdNFVA7wHMemjfIXOImNARHwCvgCFrm', 'notroot');
 insert into users (username, "password", email) values ('guest', '$2y$12$WtbuGvgFuVnrLNAkMaUYoOhdNFVA7wHMemjfIXOImNARHwCvgCFrm', 'guest');
 
-insert into messages(message, author, created_time, updated_time) values ('hello world!', 'admin', '2017-08-19 14:22:11.802755+02', '2017-08-19 14:22:11.802755+02');
-insert into messages(message, author, created_time, updated_time) values ('London is the capital of GB', 'parker', '2017-08-19 14:25:11.802755+02', '2017-08-19 14:25:11.802755+02');
-insert into messages(message, author, created_time, updated_time) values ('Postgres', 'root', '2017-08-19 14:30:11.802755+02', '2017-08-19 14:30:11.802755+02');
-insert into messages(message, author, created_time, updated_time) values ('Kavabanga', 'admin', '2017-08-19 14:35:11.802755+02', '2017-08-19 14:37:11.802755+02');
+insert into messages(message, user_id, created_time, updated_time) values ('hello world!', 1, '2017-08-19 14:22:11.802755+02', '2017-08-19 14:22:11.802755+02');
+insert into messages(message, user_id, created_time, updated_time) values ('London is the capital of GB', 2, '2017-08-19 14:25:11.802755+02', '2017-08-19 14:25:11.802755+02');
+insert into messages(message, user_id, created_time, updated_time) values ('Postgres', 3, '2017-08-19 14:30:11.802755+02', '2017-08-19 14:30:11.802755+02');
+insert into messages(message, user_id, created_time, updated_time) values ('Kavabanga', 1, '2017-08-19 14:35:11.802755+02', '2017-08-19 14:37:11.802755+02');
