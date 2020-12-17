@@ -15,6 +15,10 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS messages (
     id bigserial NOT NULL,
-    message varchar(255),
+    message varchar(255) NOT NULL,
+    user_id BIGINT NOT NULL,
+    created_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    status varchar(20) NOT NULL DEFAULT 'ACTIVE',
     CONSTRAINT messages_pkey PRIMARY KEY (id)
 );
