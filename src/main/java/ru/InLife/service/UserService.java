@@ -9,6 +9,7 @@ import ru.InLife.model.Status;
 import ru.InLife.model.User;
 import ru.InLife.repository.UserRepository;
 
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -67,6 +68,7 @@ public class UserService {
                 user.setStatus(Status.valueOf((String)fieldValue));
             }
         });
+        user.setUpdatedTime(ZonedDateTime.now());
         saveUser(user);
         return user;
     }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import java.time.ZonedDateTime;
 
 @Data
 @Entity
@@ -37,6 +38,8 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     @Column(name = "status")
     private Status status;
+    private ZonedDateTime createdTime = ZonedDateTime.now();
+    private ZonedDateTime updatedTime = createdTime;
 
     public void setPassword(String password) {
         this.password = passwordEncoder.encode(password);
