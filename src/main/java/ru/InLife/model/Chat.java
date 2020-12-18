@@ -7,30 +7,24 @@ import java.time.ZonedDateTime;
 
 @Data
 @Entity
-@Table(name = "messages")
-public class Message {
+@Table(name = "chats")
+public class Chat {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Message() {
-    }
+    @OneToOne
+    @JoinColumn(name = "first_user_id")
+    private User firstUser;
 
-    public Message(String message) {
-        this.message = message;
-    }
+    @OneToOne
+    @JoinColumn(name = "second_user_id")
+    private User secondUser;
 
-    private String message;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User author;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "chat_id")
-    private Chat chat;
 
     @Enumerated(EnumType.STRING)
     private Status status;
     private ZonedDateTime createdTime = ZonedDateTime.now();
     private ZonedDateTime updatedTime = createdTime;
-}   
+}
