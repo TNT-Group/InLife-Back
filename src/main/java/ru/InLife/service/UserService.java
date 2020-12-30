@@ -68,7 +68,7 @@ public class UserService {
                 user.setStatus(Status.valueOf((String)fieldValue));
             }
         });
-        user.setUpdatedTime(ZonedDateTime.now());
+//        user.setUpdatedTime(ZonedDateTime.now());
         saveUser(user);
         return user;
     }
